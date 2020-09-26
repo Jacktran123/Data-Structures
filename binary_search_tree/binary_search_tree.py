@@ -94,7 +94,7 @@ class BSTNode:
             print(current.value)
             if current.left:
                 stack.append(current.left)
-            if current.right:
+            if current.right:   
                 stack.append(current.right)
 
     # Stretch Goals -------------------------
@@ -102,11 +102,26 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self):
-        pass
+        stack=[]
+        stack.append(self)
+        while len(stack):
+            current=stack.pop()
+            print(current.value)
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
 
     # Print Post-order recursive DFT
     def post_order_dft(self):
-        pass
+        if self.value:
+            if self.left:
+                self.left.post_order_dft() 
+            if self.right:
+                self.right.post_order_dft()
+            print(self.value)
+
+        
 
 """
 This code is necessary for testing the `print` methods
